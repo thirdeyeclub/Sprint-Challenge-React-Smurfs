@@ -20,8 +20,8 @@ class App extends Component {
       .catch(err => console.log('Aw Shit, Clitus the tractor wont start!' + err));
 }
 
-smurfPoster = (name, height, age ) => {
-  console.log(name, height, age );
+smurfPoster = (name, age, height ) => {
+  console.log(name, age, height );
   axios.post('http://localhost:3333/smurfs', {name, height, age})
   .then(res =>this.setState({smurfs: res.data}))
   .catch(err => console.log(err + 'SMURF UNABLE TO POST'))
