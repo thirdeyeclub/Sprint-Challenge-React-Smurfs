@@ -5,6 +5,7 @@ import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Smurf from './components/Smurf';
 import axios from 'axios';
+import { Route, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -35,8 +36,16 @@ smurfPoster = (name, age, height ) => {
   render() {
     return (
       <div className="App">
-        <SmurfForm smurfPoster={this.smurfPoster}/>
+       
+       
+
         <Smurfs smurfs={this.state.smurfs} />
+
+        <Route path ='/smurfform' render ={props => ( 
+          <SmurfForm smurfPoster={this.smurfPoster}/>
+        )}
+            />
+      <Link to={'/smurfform'}><h3>Create Smurfs</h3></Link>
       </div>
     );
   }
