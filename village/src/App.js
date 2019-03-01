@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 import axios from 'axios';
 
 class App extends Component {
@@ -32,7 +33,7 @@ smurfPoster = (name, height, age ) => {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm smurfPoster={this.smurfPoster}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
