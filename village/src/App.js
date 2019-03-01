@@ -37,10 +37,10 @@ smurfPoster = (name, age, height ) => {
     return (
       <div className="App">
        
-       
-
-        <Smurfs smurfs={this.state.smurfs} />
-
+          <Route exact path="/" render={props => (
+            <Smurfs {...props} smurfs={this.state.smurfs} smurfASmurf={this.smurfASmurf}/>
+        )} />
+         <Link to={`/`}><h2>Smurfs</h2></Link>
         <Route path ='/smurfform' render ={props => ( 
           <SmurfForm smurfPoster={this.smurfPoster}/>
         )}
