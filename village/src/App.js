@@ -12,13 +12,20 @@ class App extends Component {
       smurfs: [],
     };
   }
-
   
   componentDidMount() {
     axios.get('http://localhost:3333/smurfs')
       .then(res => this.setState({smurfs: res.data}))
-      .catch(err => console.log('Aw Shit, Clitus the tractor wont start!', err));
+      .catch(err => console.log('Aw Shit, Clitus the tractor wont start!' + err));
 }
+
+smurfPoster = (name, height, age ) => {
+  console.log(name, height, age );
+  axios.post('http://localhost:3333/smurfs', {name, height, age})
+  .then(res =>this.setState({smurfs: res.data}))
+  .catch(err => console.log(err + 'SMURF UNABLE TO POST'))
+}
+
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
